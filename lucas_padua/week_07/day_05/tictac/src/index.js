@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-
+///fx that listen
 function Square(props) {
   return (
     <button className="square" onClick={props.onClick}>
@@ -10,7 +10,7 @@ function Square(props) {
     </button>
   );
 }
-
+///////Board creation
 class Board extends React.Component {
   constructor(props) {
     super(props);
@@ -19,7 +19,7 @@ class Board extends React.Component {
       xIsNext: true,
     };
   }
-
+/// Player fx
   handleClick(i) {
     const squares = this.state.squares.slice();
     if (calculateWinner(squares) || squares[i]) {
@@ -31,7 +31,7 @@ class Board extends React.Component {
       xIsNext: !this.state.xIsNext,
     });
   }
-
+//// render the value on the board
   renderSquare(i) {
     return (
       <Square
@@ -40,7 +40,7 @@ class Board extends React.Component {
       />
     );
   }
-
+////
   render() {
     const winner = calculateWinner(this.state.squares);
     let status;
@@ -87,13 +87,13 @@ class Game extends React.Component {
   }
 }
 
-// ========================================
+///////////////////
 
 ReactDOM.render(
   <Game />,
   document.getElementById('root')
 );
-
+/////Winner fx
 function calculateWinner(squares) {
   const lines = [
     [0, 1, 2],
